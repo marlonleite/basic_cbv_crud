@@ -1,3 +1,4 @@
+{% load navigation %}
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -14,6 +15,27 @@
 </head>
 
 <body>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Django CBV</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item {% add_active request 'posts:post-list' %}">
+                <a class="nav-link" href="{% url 'posts:post-list' %}">Notícias</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {% add_active request 'posts:category-list' %}" href="{% url 'posts:category-list' %}">Categorias</a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
 
 
 <div class="container-fluid">

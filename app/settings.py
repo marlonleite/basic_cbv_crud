@@ -44,6 +44,7 @@ INSTALLED_APPS += [
 ]
 
 INSTALLED_APPS += [
+    'app.core',
     'app.posts',
 ]
 
