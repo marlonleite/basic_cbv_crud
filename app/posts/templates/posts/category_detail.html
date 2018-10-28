@@ -1,9 +1,8 @@
-{% extends "posts/post_list.html" %}
+{% extends "posts/category_list.html" %}
 {% block title %}{{ object.title }}{% endblock %}
 {% block title-actions %}{% endblock %}
 
 {% block content-inner %}
-    <p>{{ object.content }}</p>
     <p>Publicado em: {{ object.created_at|date }}</p>
     <p><a class="btn btn-secondary" href="{{ request.META.HTTP_REFERER }}">Retornar</a></p>
 {% endblock %}

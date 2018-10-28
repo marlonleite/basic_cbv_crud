@@ -2,11 +2,11 @@
 {% block content %}
     <div class="card-body">
         <div class="clearfix">
-            <h2 class="card-title float-left">{% block title %}Notícias{% endblock %}</h2>
+            <h2 class="card-title float-left">{% block title %}Categorias{% endblock %}</h2>
             {% block title-actions %}
                 <div class="btn-group float-right" role="group" aria-label="Actions">
-                    <a class="btn btn-secondary" href="{% url 'posts:post-create' %}">Adicionar</a>
-                    <a class="btn btn-secondary" href="{% url 'posts:category-list' %}">Categorias</a>
+                    <a class="btn btn-secondary" href="{% url 'posts:category-create' %}">Adicionar</a>
+                    <a class="btn btn-secondary" href="{% url 'posts:post-list' %}">Notícias</a>
                 </div>
             {% endblock %}
         </div>
@@ -15,26 +15,22 @@
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Notícias</th>
                     <th scope="col">Categorias</th>
                     <th scope="col">Ação</th>
                 </tr>
                 </thead>
                 <tbody>
-                {% for post in object_list %}
+                {% for category in object_list %}
                     <tr>
-                        <td>{{ post.id }}</td>
+                        <td>{{ category.id }}</td>
                         <td width="60%">
-                            <a href="{{ post.get_absolute_url }}">{{ post }}</a>
+                            <a href="{{ category.get_absolute_url }}">{{ category }}</a>
                         </td>
                         <td>
-                            <a href="{{ post.category.get_absolute_url }}">{{ post.category }}</a>
-                        </td>
-                        <td>
-                            <a href="{% url 'posts:post-update' post.pk %}">
+                            <a href="{% url 'posts:category-update' category.pk %}">
                                 <i class="fas fa-plus-square"></i>
                                 Editar</a>
-                            <a href="{% url 'posts:post-delete' post.pk %}">
+                            <a href="{% url 'posts:category-delete' category.pk %}">
                                 <i class="fas fa-trash-alt"></i>
                                 Apagar</a>
                         </td>
